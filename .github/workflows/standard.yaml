@@ -23,24 +23,24 @@ env:
   app_name: "testes"
   aws_region: "us-east-1"
   dockerfilePath: "dockerfiles/Dockerfile"
-  namespace: "behave-selenium"
+  namespace: "pytest-bdd-selenium"
 
 jobs:
-  ci_behave_selenium:
-    name: CI - Test Behave
+  ci_pytest-bdd_selenium:
+    name: CI - Test Pytest BDD
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout
         uses: actions/checkout@v3
       - name: ⚙️ Default Steps
         uses: ./.github/actions/setup-composite
-      - name: 🧪 Run Behave tests
+      - name: 🧪 Run Pytest BDD tests
         run: |
           pytest --html=report.html
 
   report_slack:
     name: CI - Send Test Status to Slack
-    needs: [ci_behave_selenium]
+    needs: [ci_pytest-bdd_selenium]
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout
