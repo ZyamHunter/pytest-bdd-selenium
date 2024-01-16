@@ -19,7 +19,7 @@ def browser():
     b.quit()
 
 
-def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func_args, exception):
+# def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func_args, exception):
     # print(f'Step failed: {step}')
     # Called when step function failed to execute
     # screenshot_folder = "screenshots"

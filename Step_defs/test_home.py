@@ -20,7 +20,6 @@ def step_impl(browser):
 @when('Acessar a página home da plataforma')
 def step_impl(browser):
     browser.get('https://www.google.com/')
-    ttt = ttt
 
 
 @then('Todos os recursos da página serão carregados')
