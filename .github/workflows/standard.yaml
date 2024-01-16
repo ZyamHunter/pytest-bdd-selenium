@@ -36,7 +36,7 @@ jobs:
         uses: ./.github/actions/setup-composite
       - name: 🧪 Run Behave tests
         run: |
-          behave -f html -o behave-report.html
+          pytest --html=report.html
 
   report_slack:
     name: CI - Send Test Status to Slack
