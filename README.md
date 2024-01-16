@@ -28,7 +28,7 @@ Acesse o site e para o seu dispositivo: https://docs.conda.io/projects/conda/en/
 - pip cache remove *
 
 ## 7. Rodar os testes
-- pytest
+- pytest --html=report.html
 
 ## 8. Desativar ambiente virtual
 - conda deactivate
