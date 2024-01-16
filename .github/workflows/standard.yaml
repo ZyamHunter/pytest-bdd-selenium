@@ -1,0 +1,53 @@
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - "feature/**"
+      - "fix/**"
+      - "release/**"
+    paths-ignore:
+      - "**/*.md"
+      - .scafflater/**
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - "**/*.md"
+      - .scafflater/**
+  workflow_dispatch:
+
+name: Standard
+
+env:
+  app_name: "testes"
+  aws_region: "us-east-1"
+  dockerfilePath: "dockerfiles/Dockerfile"
+  namespace: "behave-selenium"
+
+jobs:
+  ci_behave_selenium:
+    name: CI - Test Behave
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v3
+      - name: ⚙️ Default Steps
+        uses: ./.github/actions/setup-composite
+      - name: 🧪 Run Behave tests
+        run: |
+          behave -f html -o behave-report.html
+
+  report_slack:
+    name: CI - Send Test Status to Slack
+    needs: [ci_behave_selenium]
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v3
+      - name: ⚙️ Default Steps
+        uses: ./.github/actions/setup-composite
+      - name: 📨 Run Curl Message To Slack
+        run:
+          # robot ./Helpers/Curl_Slack.robot
+          echo "Enviando report de testes para o slack"
