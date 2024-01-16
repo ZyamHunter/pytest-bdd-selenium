@@ -4,9 +4,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import os
 
+feature_file_path = os.path.abspath('Features/search.feature')
 
-@scenario('search.feature', 'Pesquisar informação na página home')
+@scenario(feature_file_path, 'Pesquisar informação na página home')
 def test_publish():
     pass
 

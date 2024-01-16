@@ -3,9 +3,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import os
 
+feature_file_path = os.path.abspath('Features/home.feature')
 
-@scenario('home.feature', 'Verificar página home')
+@scenario(feature_file_path, 'Verificar página home')
 def test_publish():
     pass
 
