@@ -3,3 +3,4 @@ autopep8==2.0.4
 selenium==4.9
 webdriver-manager==4.0.1
 pytest-splinter==3.3.2
+pytest-html==4.1.1
